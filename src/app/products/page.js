@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import ProductInput from "./ProductInput";
+import ProductList from "./ProductList";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -57,6 +59,10 @@ export default function ProductsPage() {
   return (
     <main style={{ padding: 32 }}>
       <h1>Daftar Produk</h1>
+      {/* Komponen Redux */}
+      <ProductInput />
+      <ProductList />
+      {/* Komponen CRUD ke database */}
       <form onSubmit={handleSubmit} style={{ marginBottom: 24 }}>
         <input type="text" placeholder="Nama produk" value={form.name} onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))} required style={{ marginRight: 8 }} />
         <input type="number" placeholder="Harga" value={form.price} onChange={(e) => setForm((f) => ({ ...f, price: e.target.value }))} required style={{ marginRight: 8 }} />
